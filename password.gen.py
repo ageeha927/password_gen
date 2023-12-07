@@ -1,3 +1,5 @@
+import random
+
 def password(length):
     print('''
 Hello! Welcome to your password generator.
@@ -19,11 +21,21 @@ Well have fun!
     ]
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    l = random.shuffle(letters)
+    n = random.shuffle(numbers)
+    s = random.shuffle(symbols)
+
     a = ''
     while a.lower() != 'exit':
         a = input('Would you like to continue? If not input exit.')
         if a.lower() != 'exit':
             length = input('What length would you like your password?(12 to 16)')
+            if int(length) < 12:
+                print("Your number should be at least 8.")
+                a = input("Please, Enter your number again: ")
+            else:
+                
     
 
 print(password(0))
