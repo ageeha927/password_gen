@@ -21,10 +21,12 @@ Well have fun!
     ]
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+    punctuation = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '//', ']', '^', '_', '`', '{', '|', '}', '~']
 
-    l = random.shuffle(letters)
-    n = random.shuffle(numbers)
-    s = random.shuffle(symbols)
+    random.shuffle(letters)
+    random.shuffle(numbers)
+    random.shuffle(symbols)
+    random.shuffle(punctuation)
 
     a = ''
     while a.lower() != 'exit':
@@ -35,7 +37,18 @@ Well have fun!
                 print("Your number should be at least 8.")
                 a = input("Please, Enter your number again: ")
             else:
-                
+                one = round(int(length) * (30/100))
+                two = round(int(length) * (20/100))
+                password = []
+                for x in range(one):
+                    password.append(letters[x])
+                    password.append(numbers[x])
+                for x in range(two):
+                    password.append(symbols[x])
+                    password.append(punctuation[x])
+                random.shuffle(password)
+                password = "".join(password)
+                return (f"Here is your password: {password}")
     
 
 print(password(0))
